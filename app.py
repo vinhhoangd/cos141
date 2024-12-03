@@ -16,7 +16,7 @@ app.config['MYSQL_DATABASE_PASSWORD'] = db['mysql_password']
 app.config['MYSQL_DATABASE_DB'] = db['mysql_db']
 
 mysql.init_app(app)
-
+#h
 # change this to your secret key
 # (can be anything, it's for extra protection)
 app.secret_key = "feitian"
