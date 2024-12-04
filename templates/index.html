@@ -1,34 +1,84 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Login</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Full viewport height */
+                margin: 0;
+                background-color: #f4f4f4; /* Light background color for better contrast */
+            }
+
+            .form-container {
+                text-align: center;
+                background-color: white;
+                padding: 80px;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+                width: 200px; /* Adjust width for a compact form */
+            }
+
+            .login-header {
+                font-size: 18px; /* Keep the font size as is */
+                font-weight: bold; /* Make it bold */
+                color: #000000; /* Set text color to black */
+                margin-bottom: 20px; /* Spacing below the header */
+            }
+
+            .form-container input[type="text"],
+            .form-container input[type="password"] {
+                width: 100%; /* Make input fields stretch full width */
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #737373;
+                border-radius: 5px;
+                font-size: 14px;
+            }
+
+            .form-container input[type="submit"] {
+                background-color: #06a20c; /* Matcha green */
+                color: white; /* Text color */
+                border: none; /* Remove border */
+                padding: 11px 0; /* Make button taller */
+                width: 111%; /* Button width */
+                font-size: 16px; /* Font size */
+                border-radius: 5px; /* Rounded corners */
+                cursor: pointer; /* Pointer on hover */
+                transition: background-color 0.3s ease; /* Smooth hover effect */
+            }
+
+            .form-container input[type="submit"]:hover {
+                background-color: #8BAF75; /* Slightly darker green on hover */
+            }
+        </style>
     </head>
 
     <body>
 
-        <p>Login</p>
-        <p>Please enter your username and password</p>
-
-        <form class="form-group" action="{{ url_for('login') }}" method="post">
-
-            <p>
-                <label>Username</label>
+        <div class="form-container">
+            <!-- Header with bold black text -->
+            <p class="login-header">[Feitian College] Login</p>
+            <style>
+                .login-header {
+                    font-size: 24px; /* Increase this value for a bigger size */
+                    font-weight: bold; /* Keep it bold */
+                    color: #000000; /* Set the text color to black */
+                    margin-bottom: 20px; /* Add spacing below the header */
+                }
+            </style>
+            <form class="form-group" action="{{ url_for('login') }}" method="post">
                 <input type="text" name="username" placeholder="Username" id="username" required />
-            </p>
-
-            <p>
-                <label>Password</label>
                 <input type="password" class="form-control" name="password" placeholder="Password" id="password" required />
-            </p>
-
-            <input type="checkbox" value="checked" /><b>Remember</b>
-            <br><input type="submit" value="Login" name="" />
-
-        </form>
-
-        <div id="msg">{{ msg }}</div>
+                
+                <br>
+                <input type="submit" value="Login" />
+            </form>
+            <div id="msg">{{ msg }}</div>
             <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
         </div>
 
     </body>
-
 </html>
