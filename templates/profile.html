@@ -1,29 +1,111 @@
-{% extends 'layout.html' %} 
-{% block title %} Profile {% endblock %} 
+{% extends 'layout.html' %}
+{% block title %} Profile {% endblock %}
 {% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .navbar {
+        background-color: #333;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center; /* Center the links */
+        gap: 20px; /* Add spacing between the links */
+        align-items: center;
+        color: white;
+    }
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 5px 10px;
+    }
+    .navbar a:hover {
+        text-decoration: underline;
+    }
+    .profile-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .profile-card {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 400px;
+    }
+    .profile-card h2 {
+        margin: 0 0 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+    .profile-card table {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: left;
+        border-spacing: 0 10px;
+    }
+    .profile-card table td:first-child {
+        font-weight: bold;
+        color: #333;
+    }
+    .profile-card table td:last-child {
+        color: #555;
+    }
+    .logout-button {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+    }
+    .logout-button:hover {
+        background-color: #e60000;
+    }
+</style>
 
-<p>Profile Page</p>
-<div>
-    <p>Your account details are below:</p>
+<div class="navbar">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('profile') }}">Profile</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</div>
 
-    <table>
-        <tr>
-            <td>Name:</td>
-            <td>{{ account['fullname'] }}</td>
-        </tr>
-        <tr>
-            <td>Username:</td>
-            <td>{{ account['username'] }}</td>
-        </tr>
-        <tr>
-            <td>Password:</td>
-            <td>{{ account['password'] }}</td>
-        </tr>
-        <tr>
-            <td>Email:</td>
-            <td>{{ account['email'] }}</td>
-        </tr>
-    </table>
-
+<div class="profile-container">
+    <div class="profile-card">
+        <h2>User Profile</h2>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>{{ account['fullname'] }}</td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td>{{ account['username'] }}</td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td>**********</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>{{ account['email'] }}</td>
+            </tr>
+        </table>
+        <form action="{{ url_for('logout') }}" method="post">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
