@@ -1,42 +1,113 @@
-<html>
-    <head>
-        <title>Register</title>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input[type="submit"] {
+            background-color: #0066cc;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0057b7;
+        }
+        .login-link {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .login-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        #msg {
+            color: red;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
 
-    <body>
-        <p>Register New User</p>
+    <div class="container">
+        <h1>[Feitian College] Sign up</h1>
+        
 
         <form action="{{ url_for('register') }}" method="post" autocomplete="off">
-           
-            <p>
-                <label>Your Name</label>
-                <input type="text" name="fullname" id="fullname" placeholder="Enter your Name" />
-            </p>
+            <div class="form-group">
+                
+                <input type="text" name="fullname" id="fullname" placeholder="Full Name" />
+            </div>
 
-            <p>
-                <label>Your Email</label>
-                <input type="text" name="email" id="email" placeholder="Enter your Email" />
-            </p>
+            <div class="form-group">
+                
+                <input type="text" name="email" id="email" placeholder="Email" />
+            </div>
 
-            <p>
-                <label>Username</label>
-                <input type="text" name="username" id="username" placeholder="Enter your Username" required />
-            </p>
-            
-            <p>
-                <label>Password</label>
-                <input type="password" name="password" id="password" placeholder="Password" required placeholder="Enter your Password" />
-            </p>
-            
-            
+            <div class="form-group">
+                
+                <input type="text" name="username" id="username" placeholder="Username" required />
+            </div>
+
+            <div class="form-group">
+                
+                <input type="password" name="password" id="password" placeholder="Password" required />
+            </div>
+
             <div id="msg">{{ msg }}</div>
-            <input type="submit" value="Register" name="" />
-        
-            <p>
-                <a href="{{ url_for('login') }}">Already have an account? Login</a>
-            </p>
             
+            <input type="submit" value="Register" />
+            
+            <div class="login-link">
+                <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+            </div>
         </form>
+    </div>
 
-    </body>
+</body>
 </html>
