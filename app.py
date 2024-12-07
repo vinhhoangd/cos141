@@ -102,7 +102,7 @@ def home():
 
 
 # http://localhost:5000/logout - this will be the logout page
-@app.route("/logout")
+@app.route("/logout", methods=["POST"])
 def logout():
     session.pop("loggedin", None)
     session.pop("id", None)
