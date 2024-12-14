@@ -1,57 +1,45 @@
 <html>
-    <head>
-        <title>{% block title %}{% endblock %}</title>
-        <style>
-            /* Navbar styles */
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
-
-            .navbar {
-                background-color: #333; /* Black background */
-                padding: 10px 20px;
-                display: flex;
-                justify-content: center; /* Center align the links */
-                gap: 20px; /* Add spacing between links */
-                align-items: center;
-            }
-
-            .navbar a {
-                color: white; /* White text for links */
-                text-decoration: none;
-                font-size: 16px;
-                font-weight: bold;
-                padding: 5px 10px;
-            }
-
-            .navbar a:hover {
-                text-decoration: underline;
-            }
-
-            /* Content styling for pages */
-            main {
-                padding: 20px;
-                background-color: #f4f4f4;
-                min-height: calc(100vh - 50px); /* Ensure content takes up remaining space */
-            }
-        </style>
+    <head><title>{% block title %}{% endblock %}</title>
     </head>
-    
     <body>
-        <!-- Navbar -->
-        <div class="navbar">
+
+        <nav>
+
             <a href="{{ url_for('home') }}">Home</a>
             <a href="{{ url_for('profile') }}">Profile</a>
-            <a href="{{ url_for('newsletter') }}">Setting</a>
+            <a href="{{ url_for('settings') }}">Settings</a>
             <a href="{{ url_for('logout') }}">Logout</a>
-        </div>
+        
+        </nav>
 
-        <!-- Main Content Block -->
-        <main>
-            {% block content %}{% endblock %}
-        </main>
+
+        {% block content %}{% endblock %}
     </body>
-</html>
 
+</html>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+ 
+    nav {
+        background-color: #333;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+   
+    nav a {
+        color: white; 
+        text-decoration: none; 
+        margin: 0 15px;
+        font-size: 18px;
+    }
+
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+</style>
